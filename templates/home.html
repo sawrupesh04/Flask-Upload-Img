@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body>
+{% if message %}
+<p style="color: red">{{ message }}</p>
+{% endif %}
+<h2>Select and upload image</h2>
+<form action="{{ url_for('upload_img') }}" enctype="multipart/form-data" method="POST">
+   <input type="file" name="img" required/>
+   <input type="submit" value="Upload"/>
+</form>
+<br/>
+<br/>
+<form action="{{ url_for('links') }}" method="get">
+    <input type="submit", value="My Links">
+</form>
+
+<br/>
+
+{% if all_img %}
+    <h4>Image links:</h4>
+{% for img in all_img %}
+    <li><a href="http://localhost:5000/image/{{ img.id }}">{{ img.name }}</a></li>
+{% endfor %}
+{% endif %}
+</body>
+</html>

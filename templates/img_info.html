@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Details</title>
+</head>
+<body>
+{% if message %}
+{{ message }}
+{% endif %}
+
+{% if image_detail %}
+<img src="data:;base64,{{ img }} " width="500" height="300"/>
+<h3>Image Detail:</h3>
+<ol>
+    <li> <b>Resolution:</b>        {{ image_detail.resolution }}</li>
+    <li> <b>Image size(bytes):</b> {{ image_detail.size }}</li>
+    <li> <b>Timestamp: </b>        {{ image_detail.timestamp }}</li>
+    <li> <b>Filename:   </b>      {{ image_detail.name }}</li>
+    <li> <b>File extension:   </b>      {{ image_detail.mimetype }}</li>
+
+</ol>
+
+{% endif %}
+
+
+
+</body>
+</html>
